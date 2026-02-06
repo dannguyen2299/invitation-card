@@ -2,196 +2,376 @@
 <html lang="vi">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>Year End Party – Retro Invite</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+    <title>Retro Year-End Night</title>
     <style>
         :root{
-            --bg:#0f0b07; --paper:#fff3df; --ink:#1a1410; --muted:#4b3f36;
-            --sun:#ffb000; --red:#ff3b30; --teal:#00b7a8; --blue:#2f5dff;
-            --r:18px;
+            --bg0:#07060a;
+            --bg1:#120b10;
+            --paper: rgba(255,255,255,.08);
+            --paper2: rgba(255,255,255,.12);
+            --stroke: rgba(255,255,255,.14);
+            --text: rgba(255,255,255,.92);
+            --muted: rgba(255,255,255,.72);
+            --shadow: 0 24px 90px rgba(0,0,0,.55);
+
+            --sun:#ffb000;
+            --red:#ff3b30;
+            --teal:#00b7a8;
+            --blue:#2f5dff;
+
+            --r:22px;
         }
+
         *{box-sizing:border-box}
+        html,body{height:100%}
         body{
             margin:0;
             font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color:var(--text);
             background:
-                    radial-gradient(1100px 800px at 20% 10%, rgba(255,176,0,.18), transparent 55%),
-                    radial-gradient(900px 700px at 90% 30%, rgba(0,183,168,.14), transparent 55%),
-                    linear-gradient(180deg, rgba(255,255,255,.02), transparent 35%),
-                    var(--bg);
-            line-height:1.5;
+                    radial-gradient(1100px 700px at 20% 0%, rgba(255,176,0,.18), transparent 60%),
+                    radial-gradient(1100px 700px at 90% 20%, rgba(0,183,168,.14), transparent 60%),
+                    radial-gradient(900px 600px at 50% 100%, rgba(47,93,255,.10), transparent 60%),
+                    linear-gradient(180deg, var(--bg1), var(--bg0));
+            -webkit-tap-highlight-color: transparent;
         }
-        .wrap{max-width:1100px;margin:0 auto;padding:22px}
-        .top{display:flex;justify-content:space-between;gap:12px;align-items:center;color:rgba(255,243,223,.86)}
+
+        .wrap{
+            max-width:980px;
+            margin:0 auto;
+            padding:16px 16px calc(96px + env(safe-area-inset-bottom));
+        }
+
+        /* Top bar */
+        .top{
+            display:flex; align-items:center; justify-content:space-between; gap:10px;
+            padding:8px 4px 12px;
+        }
         .brand{
-            display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:12px;
+            display:flex; align-items:center; gap:10px;
+            font-weight:950; letter-spacing:.12em; text-transform:uppercase;
+            font-size:12px; color:rgba(255,255,255,.90);
+            white-space:nowrap;
         }
         .badge{
-            width:32px;height:32px;border-radius:999px;
+            width:30px;height:30px;border-radius:999px;
             background: conic-gradient(from 220deg, var(--sun), var(--red), var(--teal), var(--sun));
-            box-shadow: 0 12px 30px rgba(0,0,0,.45);
-            border:1px solid rgba(255,255,255,.14);
+            border:1px solid rgba(255,255,255,.18);
+            box-shadow: 0 18px 50px rgba(0,0,0,.6);
         }
         .count{
-            padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
-            background: rgba(0,0,0,.25); font-size:12px;
-        }
-        .poster{
-            margin-top:14px;
-            background: var(--paper);
-            border-radius: 26px;
-            overflow:hidden;
-            box-shadow: 0 26px 90px rgba(0,0,0,.65);
-            position:relative;
-        }
-        .poster:before{
-            content:""; position:absolute; inset:0;
-            background:
-                    radial-gradient(900px 450px at 20% 0%, rgba(255,176,0,.22), transparent 65%),
-                    radial-gradient(900px 450px at 80% 10%, rgba(0,183,168,.18), transparent 65%),
-                    repeating-linear-gradient(90deg, rgba(0,0,0,.03) 0, rgba(0,0,0,.03) 1px, transparent 1px, transparent 6px);
-            opacity:.9; pointer-events:none;
-            mix-blend-mode:multiply;
-        }
-        .poster-inner{
-            position:relative;
-            padding:22px;
-            display:grid; grid-template-columns: 1.1fr .9fr; gap:16px;
-        }
-        .stamp{
-            display:inline-flex;align-items:center;gap:10px;
-            padding:8px 12px;border-radius:999px;
-            background: rgba(26,20,16,.08);
-            border:2px solid rgba(26,20,16,.18);
-            color: var(--ink);
-            font-weight:900; letter-spacing:.14em; text-transform:uppercase; font-size:12px;
-            width:max-content;
-        }
-        .stars{
-            display:inline-flex; gap:4px; align-items:center;
-        }
-        .stars span{
-            width:8px;height:8px;border-radius:2px;display:inline-block;
-            background: var(--red);
-            box-shadow: 0 0 0 2px rgba(26,20,16,.08);
-            transform: rotate(12deg);
-        }
-        h1{
-            margin:12px 0 10px;
-            color: var(--ink);
-            font-size: clamp(34px, 4.8vw, 58px);
-            letter-spacing:-.03em;
-            line-height:1.05;
-            text-transform:uppercase;
-        }
-        .sub{margin:0;color:var(--muted);max-width:62ch;font-weight:650}
-        .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-        .btn{
-            border-radius:14px;
-            border:2px solid rgba(26,20,16,.18);
-            background: rgba(255,255,255,.55);
-            color: var(--ink);
-            padding:11px 13px; cursor:pointer; font-weight:950; font-size:14px;
-            display:inline-flex;gap:10px;align-items:center;text-decoration:none;
-            transition: transform .12s ease, box-shadow .12s ease;
-        }
-        .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18)}
-        .btn.primary{
-            background: linear-gradient(90deg, rgba(255,176,0,.55), rgba(0,183,168,.42));
-            border-color: rgba(26,20,16,.22);
-        }
-        .meta{
-            border-radius:18px;
-            background: rgba(26,20,16,.06);
-            border:2px dashed rgba(26,20,16,.22);
-            padding:14px;
-            color: var(--ink);
-        }
-        .meta .big{margin:0;font-weight:1000;font-size:16px}
-        .meta .small{margin:8px 0 0;color:var(--muted);font-size:13px;font-weight:650}
-        .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:14px}
-        .card{
-            grid-column:span 4;
-            border-radius:18px;
-            border:2px solid rgba(26,20,16,.16);
-            background: rgba(255,255,255,.55);
-            padding:14px;
-            color: var(--ink);
-            box-shadow: 0 12px 30px rgba(0,0,0,.16);
-            position:relative;
-        }
-        .card h3{margin:0 0 6px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,20,16,.75)}
-        .card .v{margin:0;font-size:16px;font-weight:1000}
-        .card .h{margin:6px 0 0;color:var(--muted);font-size:13px;font-weight:650}
-        .section-title{margin:22px 0 10px;display:flex;justify-content:space-between;gap:10px;align-items:end;color:rgba(255,243,223,.92)}
-        .section-title h2{margin:0;font-size:18px}
-        .section-title p{margin:0;opacity:.85;font-size:13px}
-        .gallery{
-            border-radius:22px;
+            padding:8px 10px;
+            border-radius:999px;
             border:1px solid rgba(255,255,255,.14);
             background: rgba(0,0,0,.22);
-            padding:14px;
-            box-shadow: 0 24px 70px rgba(0,0,0,.55);
-        }
-        .ggrid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
-        .thumb{
-            grid-column:span 3;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;
-            border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18)
-        }
-        .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
-        .toast{
-            position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
-            padding:10px 12px;border-radius:999px;background:rgba(0,0,0,.55);
-            border:1px solid rgba(255,255,255,.14);color:rgba(255,243,223,.95);
-            opacity:0;pointer-events:none;transition:opacity .18s ease, transform .18s ease;z-index:50;
+            font-size:12px;
+            white-space:nowrap;
             backdrop-filter: blur(10px);
         }
-        .toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
-        /* Lightbox */
-        .lb{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}
-        .lb.show{display:flex}
-        .lbcard{width:min(980px,100%);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.85);backdrop-filter: blur(10px);box-shadow:0 30px 90px rgba(0,0,0,.8)}
-        .lbh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,243,223,.95)}
-        .lbh .nav{display:flex;gap:8px}
-        .ib{border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;padding:8px 10px;cursor:pointer;font-weight:950}
-        .lbimg{width:100%;height:min(72vh,740px);background:#000}
-        .lbimg img{width:100%;height:100%;object-fit:contain;display:block}
-        @media (max-width:860px){
-            .poster-inner{grid-template-columns:1fr}
-            .card{grid-column:span 12}
-            .thumb{grid-column:span 6}
+
+        /* Hero */
+        .hero{
+            position:relative;
+            border-radius: 26px;
+            overflow:hidden;
+            box-shadow: var(--shadow);
+            border:1px solid rgba(255,255,255,.10);
+            background: #000;
+            isolation:isolate;
         }
-        @media (max-width:460px){
-            .thumb{grid-column:span 12}
-            .btn{width:100%;justify-content:center}
+        .hero .img{
+            height: 56vh;
+            min-height: 420px;
+            background:
+                    linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.72)),
+                    url('https://images.unsplash.com/photo-1528106963435-2c3b1a0a4b7b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            transform: scale(1.02);
+            filter: saturate(1.08) contrast(1.06);
+        }
+        .hero:before{
+            content:"";
+            position:absolute; inset:0;
+            background:
+                    radial-gradient(700px 420px at 20% 10%, rgba(255,176,0,.18), transparent 60%),
+                    radial-gradient(700px 420px at 80% 10%, rgba(0,183,168,.12), transparent 60%),
+                    linear-gradient(120deg, rgba(255,59,48,.10), transparent 40%, rgba(47,93,255,.10));
+            mix-blend-mode: screen;
+            pointer-events:none;
+            z-index:1;
+        }
+
+        .heroContent{
+            position:absolute;
+            left:0; right:0; bottom:0;
+            padding:16px;
+            z-index:2;
+        }
+        .glass{
+            border-radius: 22px;
+            padding:16px;
+            background: rgba(10,10,14,.40);
+            border:1px solid rgba(255,255,255,.14);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 70px rgba(0,0,0,.45);
+        }
+        .stamp{
+            display:inline-flex; align-items:center; gap:8px;
+            padding:7px 10px;
+            border-radius:999px;
+            border:1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.08);
+            font-size:12px;
+            font-weight:950;
+            letter-spacing:.12em;
+            text-transform:uppercase;
+            width:max-content;
+        }
+        .dot{
+            width:8px;height:8px;border-radius:2px; transform:rotate(12deg);
+            background: var(--red);
+            box-shadow: 0 0 0 2px rgba(255,255,255,.10);
+        }
+
+        h1{
+            margin:10px 0 8px;
+            font-size: clamp(34px, 9.2vw, 56px);
+            line-height:1.02;
+            letter-spacing:-.03em;
+            text-transform:uppercase;
+        }
+        .sub{
+            margin:0;
+            color:rgba(255,255,255,.78);
+            font-weight:650;
+            font-size:14px;
+            max-width: 52ch;
+        }
+
+        /* Chips */
+        .chips{
+            margin-top:12px;
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+        }
+        .chip{
+            display:inline-flex; align-items:center; gap:8px;
+            padding:9px 10px;
+            border-radius:999px;
+            border:1px solid rgba(255,255,255,.14);
+            background: rgba(255,255,255,.06);
+            color: rgba(255,255,255,.88);
+            font-size:13px;
+            font-weight:750;
+            backdrop-filter: blur(10px);
+        }
+        .chip b{color:#fff}
+        .ico{
+            width:18px;height:18px; display:inline-grid; place-items:center;
+            border-radius:6px;
+            background: rgba(255,255,255,.10);
+            border:1px solid rgba(255,255,255,.12);
+            font-size:12px;
+        }
+
+        /* Detail cards */
+        .grid{
+            margin-top:14px;
+            display:grid;
+            grid-template-columns: 1fr;
+            gap:12px;
+        }
+        .card{
+            border-radius: var(--r);
+            border:1px solid rgba(255,255,255,.14);
+            background: rgba(255,255,255,.06);
+            backdrop-filter: blur(10px);
+            padding:14px;
+            box-shadow: 0 18px 60px rgba(0,0,0,.35);
+        }
+        .card h3{
+            margin:0 0 6px;
+            font-size:12px;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            color: rgba(255,255,255,.78);
+        }
+        .v{margin:0; font-size:16px; font-weight:950}
+        .h{margin:8px 0 0; color:rgba(255,255,255,.74); font-size:13px; font-weight:650}
+
+        /* Gallery strip */
+        .section-title{
+            margin:18px 0 10px;
+            display:flex; justify-content:space-between; align-items:end; gap:10px;
+        }
+        .section-title h2{margin:0; font-size:18px}
+        .section-title p{margin:0; font-size:13px; opacity:.78}
+
+        .gallery{
+            border-radius: 24px;
+            border:1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.20);
+            padding:12px;
+            overflow:hidden;
+            box-shadow: var(--shadow);
+        }
+        .gstrip{
+            display:flex;
+            gap:10px;
+            overflow:auto;
+            padding-bottom:6px;
+            scroll-snap-type:x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .thumb{
+            flex:0 0 70%;
+            max-width:70%;
+            border-radius:18px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,.14);
+            background: rgba(255,255,255,.06);
+            aspect-ratio: 4/3;
+            scroll-snap-align:start;
+            position:relative;
+            cursor:pointer;
+        }
+        .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
+        .thumb:after{
+            content:"";
+            position:absolute; inset:0;
+            background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.35));
+            pointer-events:none;
+        }
+
+        /* Sticky bottom actions */
+        .actionbar{
+            position:fixed; left:0; right:0; bottom:0;
+            padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+            background: rgba(0,0,0,.58);
+            border-top:1px solid rgba(255,255,255,.12);
+            backdrop-filter: blur(10px);
+            z-index:60;
+        }
+        .actions{
+            max-width:980px;
+            margin:0 auto;
+            display:grid;
+            grid-template-columns: 1fr;
+            gap:10px;
+        }
+        .btn{
+            border-radius:16px;
+            border:1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.08);
+            color: rgba(255,255,255,.92);
+            padding:13px 14px;
+            cursor:pointer;
+            font-weight:950;
+            font-size:15px;
+            display:inline-flex;
+            justify-content:center;
+            align-items:center;
+            gap:10px;
+            text-decoration:none;
+            user-select:none;
+        }
+        .btn:active{transform:translateY(1px)}
+        .btn.primary{
+            color:#120b10;
+            background: linear-gradient(90deg, rgba(255,176,0,.92), rgba(0,183,168,.78));
+            border-color: rgba(255,255,255,.10);
+        }
+        .btnrow{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:10px;
+        }
+
+        /* Toast */
+        .toast{
+            position:fixed; left:50%; bottom:92px; transform:translateX(-50%);
+            padding:10px 12px;
+            border-radius:999px;
+            background: rgba(0,0,0,.55);
+            border:1px solid rgba(255,255,255,.14);
+            color:rgba(255,255,255,.92);
+            opacity:0; pointer-events:none;
+            transition:opacity .18s ease, transform .18s ease;
+            z-index:80;
+            backdrop-filter: blur(10px);
+        }
+        .toast.show{opacity:1; transform:translateX(-50%) translateY(-6px)}
+
+        /* Lightbox */
+        .lb{position:fixed; inset:0; background:rgba(0,0,0,.82); display:none; align-items:center; justify-content:center; padding:14px; z-index:100}
+        .lb.show{display:flex}
+        .lbcard{
+            width:min(980px,100%);
+            border-radius:22px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,.18);
+            background: rgba(0,0,0,.88);
+            box-shadow: 0 30px 90px rgba(0,0,0,.80);
+            backdrop-filter: blur(10px);
+        }
+        .lbh{
+            display:flex; justify-content:space-between; align-items:center; gap:10px;
+            padding:10px 12px;
+            border-bottom:1px solid rgba(255,255,255,.12);
+        }
+        .lbh .nav{display:flex; gap:8px}
+        .ib{
+            border-radius:14px;
+            border:1px solid rgba(255,255,255,.18);
+            background: rgba(255,255,255,.08);
+            color:#fff;
+            padding:9px 11px;
+            cursor:pointer;
+            font-weight:950;
+        }
+        .lbimg{width:100%; height:min(70vh,740px); background:#000; touch-action: pan-y;}
+        .lbimg img{width:100%; height:100%; object-fit:contain; display:block}
+
+        @media (min-width: 760px){
+            .wrap{padding:22px 22px calc(96px + env(safe-area-inset-bottom))}
+            .grid{grid-template-columns: repeat(3, 1fr)}
+            .thumb{flex-basis: 32%; max-width:32%}
+            .actions{grid-template-columns: 1.2fr .8fr}
+            .btnrow{grid-template-columns: 1fr 1fr}
+            .toast{bottom:102px}
+            .hero .img{height: 62vh; min-height: 520px}
+        }
+        @media (max-width:420px){
             .count{display:none}
+            .btnrow{grid-template-columns: 1fr}
+            .thumb{flex-basis: 84%; max-width:84%}
         }
     </style>
 </head>
+
 <body>
 <div class="wrap">
     <div class="top">
-        <div class="brand"><span class="badge"></span> Retro Poster Invite</div>
+        <div class="brand"><span class="badge"></span> Retro Invite</div>
         <div class="count" id="countdown">Đếm ngược…</div>
     </div>
 
-    <section class="poster">
-        <div class="poster-inner">
-            <div>
-                <div class="stamp"><span class="stars"><span></span><span></span><span></span></span> Year End Party</div>
+    <section class="hero">
+        <div class="img" aria-hidden="true"></div>
+
+        <div class="heroContent">
+            <div class="glass">
+                <div class="stamp"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Year End Party</div>
                 <h1>Retro<br/>Year-End<br/>Night</h1>
-                <p class="sub">Phong cách poster cổ điển, vibe vui, ảnh đẹp. Mang theo nụ cười và năng lượng!</p>
-                <div class="actions">
-                    <a class="btn primary" id="rsvpBtn" href="#">RSVP</a>
-                    <button class="btn" id="copyAddr">Copy địa chỉ</button>
-                    <button class="btn" id="addIcs">Add to Calendar (.ics)</button>
+                <p class="sub">Poster vibe nhưng giao diện hiện đại — mở là thấy muốn đi ngay 🎞️</p>
+
+                <div class="chips">
+                    <div class="chip"><span class="ico">🗓</span> <b id="dateChip">20/12/2026</b></div>
+                    <div class="chip"><span class="ico">🕗</span> <b id="timeChip">20:00–23:30</b></div>
+                    <div class="chip"><span class="ico">📍</span> <span id="placeChip">The Pearl Rooftop</span></div>
+                    <div class="chip"><span class="ico">👕</span> Retro / Vintage</div>
                 </div>
-            </div>
-            <div class="meta">
-                <p class="big" id="dateText">20:00 • 20/12/2026</p>
-                <p class="small" id="placeText">The Pearl Rooftop, Q1</p>
-                <p class="small"><b>Dress:</b> Retro / Denim / Vintage</p>
-                <p class="small">Có góc “poster photobooth” 🎞️</p>
             </div>
         </div>
     </section>
@@ -208,20 +388,31 @@
             <p class="h" id="addrValue">12 Nguyễn Huệ, Bến Nghé, Q1, TP.HCM</p>
         </div>
         <div class="card">
-            <h3>Dress code</h3>
-            <p class="v">Retro / Vintage</p>
-            <p class="h">Denim + kính râm = perfect</p>
+            <h3>Note</h3>
+            <p class="v">Photobooth 🎞️</p>
+            <p class="h">Đi sớm để chụp poster đẹp + nhận quà mini</p>
         </div>
     </div>
 
     <div class="section-title">
         <h2>Gallery</h2>
-        <p>Local images • click để xem</p>
+        <p>Vuốt ngang như story</p>
     </div>
 
     <section class="gallery">
-        <div class="ggrid" id="galleryGrid"></div>
+        <div class="gstrip" id="galleryGrid"></div>
     </section>
+</div>
+
+<!-- Sticky CTA -->
+<div class="actionbar">
+    <div class="actions">
+        <a class="btn primary" id="rsvpBtn" href="#">RSVP</a>
+        <div class="btnrow">
+            <button class="btn" id="copyAddr">Copy địa chỉ</button>
+            <button class="btn" id="addIcs">Add Calendar</button>
+        </div>
+    </div>
 </div>
 
 <div class="toast" id="toast">OK</div>
@@ -231,12 +422,12 @@
         <div class="lbh">
             <div id="lbTitle" style="font-weight:950">Ảnh</div>
             <div class="nav">
-                <button class="ib" id="prevBtn">←</button>
-                <button class="ib" id="nextBtn">→</button>
-                <button class="ib" id="closeBtn">✕</button>
+                <button class="ib" id="prevBtn" aria-label="Previous">←</button>
+                <button class="ib" id="nextBtn" aria-label="Next">→</button>
+                <button class="ib" id="closeBtn" aria-label="Close">✕</button>
             </div>
         </div>
-        <div class="lbimg"><img id="lbImg" alt="Preview" /></div>
+        <div class="lbimg" id="lbImgWrap"><img id="lbImg" alt="Preview"/></div>
     </div>
 </div>
 
@@ -254,17 +445,17 @@
     };
 
     const GALLERY = [
-        "https://unsplash.com/photos/I8JSCNld58Q/download?force=true", // DJ neon
-        "https://unsplash.com/photos/3XXkojDxK_g/download?force=true", // crowd + DJ booth
-        "https://unsplash.com/photos/jXDjKtuatkY/download?force=true", // crowd blue lights + disco balls
-        "https://unsplash.com/photos/az0rkzG-nHM/download?force=true", // champagne pour (mono vibe)
-        "https://unsplash.com/photos/swnQTaOz0-o/download?force=true", // confetti crowd
-        "https://unsplash.com/photos/Xaanw0s0pMk/download?force=true", // confetti background teal
-        "https://unsplash.com/photos/Z1XKVgPDvgc/download?force=true", // disco balls ceiling
-        "https://unsplash.com/photos/H67AHfpKhZk/download?force=true", // confetti on floor pastel
-        "https://unsplash.com/photos/3Xbl9Rgf6hY/download?force=true", // black&white crowd
-        "https://unsplash.com/photos/gRTHRJDD9dA/download?force=true", // club crowd bw + disco balls
-        "https://unsplash.com/photos/orpdR3ZSwUI/download?force=true", // da
+        "https://unsplash.com/photos/I8JSCNld58Q/download?force=true",
+        "https://unsplash.com/photos/3XXkojDxK_g/download?force=true",
+        "https://unsplash.com/photos/jXDjKtuatkY/download?force=true",
+        "https://unsplash.com/photos/az0rkzG-nHM/download?force=true",
+        "https://unsplash.com/photos/swnQTaOz0-o/download?force=true",
+        "https://unsplash.com/photos/Xaanw0s0pMk/download?force=true",
+        "https://unsplash.com/photos/Z1XKVgPDvgc/download?force=true",
+        "https://unsplash.com/photos/H67AHfpKhZk/download?force=true",
+        "https://unsplash.com/photos/3Xbl9Rgf6hY/download?force=true",
+        "https://unsplash.com/photos/gRTHRJDD9dA/download?force=true",
+        "https://unsplash.com/photos/orpdR3ZSwUI/download?force=true",
     ];
 
     function $(id){return document.getElementById(id);}
@@ -309,7 +500,7 @@
         showToast._tm=setTimeout(()=>t.classList.remove("show"), 1500);
     }
 
-    // Lightbox
+    // Lightbox + swipe
     let cur=0;
     function openLB(i){
         cur=i;
@@ -329,11 +520,13 @@
         const start=parseLocalToDate(EVENT.startLocal);
         const end=parseLocalToDate(EVENT.endLocal);
 
-        $("dateText").textContent=`${pad(start.getHours())}:${pad(start.getMinutes())} • ${pad(start.getDate())}/${pad(start.getMonth()+1)}/${start.getFullYear()}`;
-        $("placeText").textContent=EVENT.locationName;
-        $("timeValue").textContent=`${pad(start.getHours())}:${pad(start.getMinutes())} – ${pad(end.getHours())}:${pad(end.getMinutes())}`;
-        $("locValue").textContent=EVENT.locationName;
-        $("addrValue").textContent=EVENT.address;
+        $("dateChip").textContent = `${pad(start.getDate())}/${pad(start.getMonth()+1)}/${start.getFullYear()}`;
+        $("timeChip").textContent = `${pad(start.getHours())}:${pad(start.getMinutes())}–${pad(end.getHours())}:${pad(end.getMinutes())}`;
+        $("placeChip").textContent = EVENT.locationName;
+
+        $("timeValue").textContent = `${pad(start.getHours())}:${pad(start.getMinutes())} – ${pad(end.getHours())}:${pad(end.getMinutes())}`;
+        $("locValue").textContent = EVENT.locationName;
+        $("addrValue").textContent = EVENT.address;
 
         const mailto="mailto:"+encodeURIComponent(EVENT.rsvpEmail)
             +"?subject="+encodeURIComponent(EVENT.rsvpSubject)
@@ -346,7 +539,7 @@
             catch(e){
                 const ta=document.createElement("textarea");
                 ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
-                showToast("Đã copy (fallback)!");
+                showToast("Đã copy!");
             }
         });
 
@@ -355,13 +548,13 @@
             showToast("Đã tải .ics");
         });
 
-        const grid=$("galleryGrid");
+        const strip=$("galleryGrid");
         GALLERY.forEach((src, idx)=>{
             const d=document.createElement("div");
             d.className="thumb";
             d.innerHTML=`<img loading="lazy" alt="Gallery ${idx+1}" src="${src}">`;
             d.addEventListener("click", ()=>openLB(idx));
-            grid.appendChild(d);
+            strip.appendChild(d);
         });
 
         // Countdown
@@ -385,6 +578,23 @@
             if(e.key==="ArrowRight") next();
             if(e.key==="ArrowLeft") prev();
         });
+
+        // Swipe
+        const wrap=$("lbImgWrap");
+        let sx=0, dx=0, touching=false;
+        wrap.addEventListener("touchstart",(e)=>{
+            if(e.touches.length!==1) return;
+            touching=true; sx=e.touches[0].clientX; dx=0;
+        }, {passive:true});
+        wrap.addEventListener("touchmove",(e)=>{
+            if(!touching) return;
+            dx=e.touches[0].clientX-sx;
+        }, {passive:true});
+        wrap.addEventListener("touchend",()=>{
+            if(!touching) return;
+            touching=false;
+            if(Math.abs(dx)>45){ dx<0 ? next() : prev(); }
+        }, {passive:true});
     })();
 </script>
 </body>
