@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Year End Party – Retro Invite</title>
+    <style>
+        :root{
+            --bg:#0f0b07; --paper:#fff3df; --ink:#1a1410; --muted:#4b3f36;
+            --sun:#ffb000; --red:#ff3b30; --teal:#00b7a8; --blue:#2f5dff;
+            --r:18px;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            background:
+                    radial-gradient(1100px 800px at 20% 10%, rgba(255,176,0,.18), transparent 55%),
+                    radial-gradient(900px 700px at 90% 30%, rgba(0,183,168,.14), transparent 55%),
+                    linear-gradient(180deg, rgba(255,255,255,.02), transparent 35%),
+                    var(--bg);
+            line-height:1.5;
+        }
+        .wrap{max-width:1100px;margin:0 auto;padding:22px}
+        .top{display:flex;justify-content:space-between;gap:12px;align-items:center;color:rgba(255,243,223,.86)}
+        .brand{
+            display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:12px;
+        }
+        .badge{
+            width:32px;height:32px;border-radius:999px;
+            background: conic-gradient(from 220deg, var(--sun), var(--red), var(--teal), var(--sun));
+            box-shadow: 0 12px 30px rgba(0,0,0,.45);
+            border:1px solid rgba(255,255,255,.14);
+        }
+        .count{
+            padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.25); font-size:12px;
+        }
+        .poster{
+            margin-top:14px;
+            background: var(--paper);
+            border-radius: 26px;
+            overflow:hidden;
+            box-shadow: 0 26px 90px rgba(0,0,0,.65);
+            position:relative;
+        }
+        .poster:before{
+            content:""; position:absolute; inset:0;
+            background:
+                    radial-gradient(900px 450px at 20% 0%, rgba(255,176,0,.22), transparent 65%),
+                    radial-gradient(900px 450px at 80% 10%, rgba(0,183,168,.18), transparent 65%),
+                    repeating-linear-gradient(90deg, rgba(0,0,0,.03) 0, rgba(0,0,0,.03) 1px, transparent 1px, transparent 6px);
+            opacity:.9; pointer-events:none;
+            mix-blend-mode:multiply;
+        }
+        .poster-inner{
+            position:relative;
+            padding:22px;
+            display:grid; grid-template-columns: 1.1fr .9fr; gap:16px;
+        }
+        .stamp{
+            display:inline-flex;align-items:center;gap:10px;
+            padding:8px 12px;border-radius:999px;
+            background: rgba(26,20,16,.08);
+            border:2px solid rgba(26,20,16,.18);
+            color: var(--ink);
+            font-weight:900; letter-spacing:.14em; text-transform:uppercase; font-size:12px;
+            width:max-content;
+        }
+        .stars{
+            display:inline-flex; gap:4px; align-items:center;
+        }
+        .stars span{
+            width:8px;height:8px;border-radius:2px;display:inline-block;
+            background: var(--red);
+            box-shadow: 0 0 0 2px rgba(26,20,16,.08);
+            transform: rotate(12deg);
+        }
+        h1{
+            margin:12px 0 10px;
+            color: var(--ink);
+            font-size: clamp(34px, 4.8vw, 58px);
+            letter-spacing:-.03em;
+            line-height:1.05;
+            text-transform:uppercase;
+        }
+        .sub{margin:0;color:var(--muted);max-width:62ch;font-weight:650}
+        .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+        .btn{
+            border-radius:14px;
+            border:2px solid rgba(26,20,16,.18);
+            background: rgba(255,255,255,.55);
+            color: var(--ink);
+            padding:11px 13px; cursor:pointer; font-weight:950; font-size:14px;
+            display:inline-flex;gap:10px;align-items:center;text-decoration:none;
+            transition: transform .12s ease, box-shadow .12s ease;
+        }
+        .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+        .btn.primary{
+            background: linear-gradient(90deg, rgba(255,176,0,.55), rgba(0,183,168,.42));
+            border-color: rgba(26,20,16,.22);
+        }
+        .meta{
+            border-radius:18px;
+            background: rgba(26,20,16,.06);
+            border:2px dashed rgba(26,20,16,.22);
+            padding:14px;
+            color: var(--ink);
+        }
+        .meta .big{margin:0;font-weight:1000;font-size:16px}
+        .meta .small{margin:8px 0 0;color:var(--muted);font-size:13px;font-weight:650}
+        .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:14px}
+        .card{
+            grid-column:span 4;
+            border-radius:18px;
+            border:2px solid rgba(26,20,16,.16);
+            background: rgba(255,255,255,.55);
+            padding:14px;
+            color: var(--ink);
+            box-shadow: 0 12px 30px rgba(0,0,0,.16);
+            position:relative;
+        }
+        .card h3{margin:0 0 6px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,20,16,.75)}
+        .card .v{margin:0;font-size:16px;font-weight:1000}
+        .card .h{margin:6px 0 0;color:var(--muted);font-size:13px;font-weight:650}
+        .section-title{margin:22px 0 10px;display:flex;justify-content:space-between;gap:10px;align-items:end;color:rgba(255,243,223,.92)}
+        .section-title h2{margin:0;font-size:18px}
+        .section-title p{margin:0;opacity:.85;font-size:13px}
+        .gallery{
+            border-radius:22px;
+            border:1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.22);
+            padding:14px;
+            box-shadow: 0 24px 70px rgba(0,0,0,.55);
+        }
+        .ggrid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+        .thumb{
+            grid-column:span 3;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;
+            border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18)
+        }
+        .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
+        .toast{
+            position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+            padding:10px 12px;border-radius:999px;background:rgba(0,0,0,.55);
+            border:1px solid rgba(255,255,255,.14);color:rgba(255,243,223,.95);
+            opacity:0;pointer-events:none;transition:opacity .18s ease, transform .18s ease;z-index:50;
+            backdrop-filter: blur(10px);
+        }
+        .toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+        /* Lightbox */
+        .lb{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}
+        .lb.show{display:flex}
+        .lbcard{width:min(980px,100%);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.85);backdrop-filter: blur(10px);box-shadow:0 30px 90px rgba(0,0,0,.8)}
+        .lbh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,243,223,.95)}
+        .lbh .nav{display:flex;gap:8px}
+        .ib{border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;padding:8px 10px;cursor:pointer;font-weight:950}
+        .lbimg{width:100%;height:min(72vh,740px);background:#000}
+        .lbimg img{width:100%;height:100%;object-fit:contain;display:block}
+        @media (max-width:860px){
+            .poster-inner{grid-template-columns:1fr}
+            .card{grid-column:span 12}
+            .thumb{grid-column:span 6}
+        }
+        @media (max-width:460px){
+            .thumb{grid-column:span 12}
+            .btn{width:100%;justify-content:center}
+            .count{display:none}
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="top">
+        <div class="brand"><span class="badge"></span> Retro Poster Invite</div>
+        <div class="count" id="countdown">Đếm ngược…</div>
+    </div>
+
+    <section class="poster">
+        <div class="poster-inner">
+            <div>
+                <div class="stamp"><span class="stars"><span></span><span></span><span></span></span> Year End Party</div>
+                <h1>Retro<br/>Year-End<br/>Night</h1>
+                <p class="sub">Phong cách poster cổ điển, vibe vui, ảnh đẹp. Mang theo nụ cười và năng lượng!</p>
+                <div class="actions">
+                    <a class="btn primary" id="rsvpBtn" href="#">RSVP</a>
+                    <button class="btn" id="copyAddr">Copy địa chỉ</button>
+                    <button class="btn" id="addIcs">Add to Calendar (.ics)</button>
+                </div>
+            </div>
+            <div class="meta">
+                <p class="big" id="dateText">20:00 • 20/12/2026</p>
+                <p class="small" id="placeText">The Pearl Rooftop, Q1</p>
+                <p class="small"><b>Dress:</b> Retro / Denim / Vintage</p>
+                <p class="small">Có góc “poster photobooth” 🎞️</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Time</h3>
+            <p class="v" id="timeValue">20:00 – 23:30</p>
+            <p class="h">Warm-up 19:30</p>
+        </div>
+        <div class="card">
+            <h3>Location</h3>
+            <p class="v" id="locValue">The Pearl Rooftop</p>
+            <p class="h" id="addrValue">12 Nguyễn Huệ, Bến Nghé, Q1, TP.HCM</p>
+        </div>
+        <div class="card">
+            <h3>Dress code</h3>
+            <p class="v">Retro / Vintage</p>
+            <p class="h">Denim + kính râm = perfect</p>
+        </div>
+    </div>
+
+    <div class="section-title">
+        <h2>Gallery</h2>
+        <p>Local images • click để xem</p>
+    </div>
+
+    <section class="gallery">
+        <div class="ggrid" id="galleryGrid"></div>
+    </section>
+</div>
+
+<div class="toast" id="toast">OK</div>
+
+<div class="lb" id="lightbox" aria-hidden="true">
+    <div class="lbcard" role="dialog" aria-modal="true">
+        <div class="lbh">
+            <div id="lbTitle" style="font-weight:950">Ảnh</div>
+            <div class="nav">
+                <button class="ib" id="prevBtn">←</button>
+                <button class="ib" id="nextBtn">→</button>
+                <button class="ib" id="closeBtn">✕</button>
+            </div>
+        </div>
+        <div class="lbimg"><img id="lbImg" alt="Preview" /></div>
+    </div>
+</div>
+
+<script>
+    const EVENT = {
+        title: "Retro Year-End Night 2026",
+        description: "Retro poster vibe • Dress code: Retro/Vintage",
+        locationName: "The Pearl Rooftop, Quận 1",
+        address: "12 Nguyễn Huệ, Bến Nghé, Q1, TP.HCM",
+        startLocal: "2026-12-20T20:00",
+        endLocal: "2026-12-20T23:30",
+        rsvpEmail: "rsvp@example.com",
+        rsvpSubject: "RSVP - Retro Year End Night",
+        rsvpBody: "Mình xác nhận tham dự. Số người đi kèm: __. Ghi chú: __."
+    };
+
+    const GALLERY = [
+        "https://unsplash.com/photos/I8JSCNld58Q/download?force=true", // DJ neon
+        "https://unsplash.com/photos/3XXkojDxK_g/download?force=true", // crowd + DJ booth
+        "https://unsplash.com/photos/jXDjKtuatkY/download?force=true", // crowd blue lights + disco balls
+        "https://unsplash.com/photos/az0rkzG-nHM/download?force=true", // champagne pour (mono vibe)
+        "https://unsplash.com/photos/swnQTaOz0-o/download?force=true", // confetti crowd
+        "https://unsplash.com/photos/Xaanw0s0pMk/download?force=true", // confetti background teal
+        "https://unsplash.com/photos/Z1XKVgPDvgc/download?force=true", // disco balls ceiling
+        "https://unsplash.com/photos/H67AHfpKhZk/download?force=true", // confetti on floor pastel
+        "https://unsplash.com/photos/3Xbl9Rgf6hY/download?force=true", // black&white crowd
+        "https://unsplash.com/photos/gRTHRJDD9dA/download?force=true", // club crowd bw + disco balls
+        "https://unsplash.com/photos/orpdR3ZSwUI/download?force=true", // da
+    ];
+
+    function $(id){return document.getElementById(id);}
+    function pad(n){return String(n).padStart(2,"0");}
+    function parseLocalToDate(s){
+        const [d,t]=s.split("T");
+        const [Y,M,D]=d.split("-").map(Number);
+        const [hh,mm]=t.split(":").map(Number);
+        return new Date(Y,M-1,D,hh,mm,0);
+    }
+    function toICSDateUTC(date){
+        return date.getUTCFullYear()+pad(date.getUTCMonth()+1)+pad(date.getUTCDate())+
+            "T"+pad(date.getUTCHours())+pad(date.getUTCMinutes())+pad(date.getUTCSeconds())+"Z";
+    }
+    function buildICS(){
+        const start=parseLocalToDate(EVENT.startLocal);
+        const end=parseLocalToDate(EVENT.endLocal);
+        const uid="retro-"+Math.random().toString(16).slice(2)+"@local";
+        return [
+            "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//LocalInvite//Retro//VI","CALSCALE:GREGORIAN","METHOD:PUBLISH",
+            "BEGIN:VEVENT",
+            "UID:"+uid,
+            "DTSTAMP:"+toICSDateUTC(new Date()),
+            "DTSTART:"+toICSDateUTC(start),
+            "DTEND:"+toICSDateUTC(end),
+            "SUMMARY:"+EVENT.title,
+            "DESCRIPTION:"+EVENT.description.replace(/\n/g,"\\n"),
+            "LOCATION:"+EVENT.locationName+" - "+EVENT.address,
+            "END:VEVENT","END:VCALENDAR"
+        ].join("\r\n");
+    }
+    function download(filename, content, mime){
+        const blob=new Blob([content],{type:mime||"text/plain"});
+        const url=URL.createObjectURL(blob);
+        const a=document.createElement("a"); a.href=url; a.download=filename;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(()=>URL.revokeObjectURL(url),800);
+    }
+    function showToast(msg){
+        const t=$("toast"); t.textContent=msg;
+        t.classList.add("show"); clearTimeout(showToast._tm);
+        showToast._tm=setTimeout(()=>t.classList.remove("show"), 1500);
+    }
+
+    // Lightbox
+    let cur=0;
+    function openLB(i){
+        cur=i;
+        $("lbTitle").textContent=`Ảnh ${cur+1}/${GALLERY.length}`;
+        $("lbImg").src=GALLERY[cur];
+        $("lightbox").classList.add("show");
+        $("lightbox").setAttribute("aria-hidden","false");
+    }
+    function closeLB(){
+        $("lightbox").classList.remove("show");
+        $("lightbox").setAttribute("aria-hidden","true");
+    }
+    function next(){ openLB((cur+1)%GALLERY.length); }
+    function prev(){ openLB((cur-1+GALLERY.length)%GALLERY.length); }
+
+    (function init(){
+        const start=parseLocalToDate(EVENT.startLocal);
+        const end=parseLocalToDate(EVENT.endLocal);
+
+        $("dateText").textContent=`${pad(start.getHours())}:${pad(start.getMinutes())} • ${pad(start.getDate())}/${pad(start.getMonth()+1)}/${start.getFullYear()}`;
+        $("placeText").textContent=EVENT.locationName;
+        $("timeValue").textContent=`${pad(start.getHours())}:${pad(start.getMinutes())} – ${pad(end.getHours())}:${pad(end.getMinutes())}`;
+        $("locValue").textContent=EVENT.locationName;
+        $("addrValue").textContent=EVENT.address;
+
+        const mailto="mailto:"+encodeURIComponent(EVENT.rsvpEmail)
+            +"?subject="+encodeURIComponent(EVENT.rsvpSubject)
+            +"&body="+encodeURIComponent(EVENT.rsvpBody);
+        $("rsvpBtn").href=mailto;
+
+        $("copyAddr").addEventListener("click", async ()=>{
+            const text=`${EVENT.locationName} - ${EVENT.address}`;
+            try{ await navigator.clipboard.writeText(text); showToast("Đã copy địa chỉ!"); }
+            catch(e){
+                const ta=document.createElement("textarea");
+                ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+                showToast("Đã copy (fallback)!");
+            }
+        });
+
+        $("addIcs").addEventListener("click", ()=>{
+            download("year-end-party.ics", buildICS(), "text/calendar;charset=utf-8");
+            showToast("Đã tải .ics");
+        });
+
+        const grid=$("galleryGrid");
+        GALLERY.forEach((src, idx)=>{
+            const d=document.createElement("div");
+            d.className="thumb";
+            d.innerHTML=`<img loading="lazy" alt="Gallery ${idx+1}" src="${src}">`;
+            d.addEventListener("click", ()=>openLB(idx));
+            grid.appendChild(d);
+        });
+
+        // Countdown
+        const c=$("countdown");
+        function tick(){
+            const diff=start-new Date();
+            if(diff<=0){ c.textContent="Showtime 🎞️"; return; }
+            const s=Math.floor(diff/1000);
+            const d=Math.floor(s/86400), h=Math.floor((s%86400)/3600), m=Math.floor((s%3600)/60);
+            c.textContent=`Đếm ngược: ${d}d ${h}h ${m}m`;
+        }
+        tick(); setInterval(tick, 30000);
+
+        $("lightbox").addEventListener("click",(e)=>{ if(e.target===$("lightbox")) closeLB();});
+        $("closeBtn").addEventListener("click", closeLB);
+        $("nextBtn").addEventListener("click", next);
+        $("prevBtn").addEventListener("click", prev);
+        window.addEventListener("keydown",(e)=>{
+            if(!$("lightbox").classList.contains("show")) return;
+            if(e.key==="Escape") closeLB();
+            if(e.key==="ArrowRight") next();
+            if(e.key==="ArrowLeft") prev();
+        });
+    })();
+</script>
+</body>
+</html>
